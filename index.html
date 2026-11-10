@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cannibal Chess: chess where you can capture your own pieces</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="app">
+<nav><div class="logo"><b>♞&#xFE0E;</b>Cannibal Chess</div>
+<button data-v="home" class="on">Play</button><button data-v="rules">How to play</button><button id="setBtn">Settings</button></nav>
+<main>
+<section id="home" class="view on"><div class="home">
+<div class="pv"><div id="prev" style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));height:100%;container-type:inline-size"></div></div>
+<div><h1>Chess, but you can eat your own pieces.</h1>
+<p style="color:var(--mu);margin:0">Clear a path, open a file, or sacrifice a piece on purpose. Everything else is classic chess.</p>
+<p style="margin:10px 0 0">Playing as <b id="wn"></b> <button class="lnk" id="chg">change name</button></p>
+<div class="card"><div class="lab">Choose your opponent</div><div id="opps"></div></div>
+<div class="card"><button class="btn sec" id="friend" style="width:100%">Play a friend on this screen</button></div>
+<div class="ad">Advertisement</div></div></div></section>
+<section id="game" class="view"><div class="game"><div>
+<div class="pb" id="pTop"></div>
+<div class="bw"><div id="board"></div><div class="ov" id="ov"><div><h2 id="ovT"></h2><p id="ovS" style="margin:0 0 10px;color:var(--mu);font-size:13px;max-width:250px"></p><div id="ovB"></div></div></div><div id="toast"></div></div>
+<div class="pb" id="pBot"></div></div>
+<div><div class="side"><div class="st" id="stat"></div><div id="abp"></div><div class="mv" id="mv"></div>
+<div class="ctl"><button id="undo">Undo</button><button id="flip">Flip</button><button id="res">Resign</button><button id="nw2">New</button><button id="gear" aria-label="Settings">⚙&#xFE0E;</button></div></div>
+<div class="ad" style="min-height:250px">Advertisement</div></div></div></section>
+<section id="rules" class="view"><div class="rl"><h1>How to play</h1>
+<p>Cannibal Chess follows standard chess rules, with one addition.</p>
+<ol><li><b>You can capture your own pieces.</b> Any piece can take a friendly piece that it could normally move onto. Pawns capture friendly pieces diagonally.</li>
+<li><b>Your king can’t eat your pieces.</b> It can only capture enemy pieces. Nobody can capture a king, and you can’t make a move that leaves your king in check.</li>
+<li><b>It costs your turn.</b> A self-capture is a full move, shown in the move list with ⊗ and a red ring on the board.</li>
+<li><b>Everything else is normal:</b> castling, en passant, checkmate, stalemate. Pawns that reach the last rank become queens.</li></ol>
+<p><b>Opponents:</b> Lexi (King Leap), Rober (Double Jump) and Arthur (Horse Form) each have a special move shown beside the board. Beat one, then harvest their power or spare them. A spared opponent helps you later with one use of their move.</p>
+<p><b>Ideas to try:</b> eat your own blocker to open a line to the enemy king, or give up a piece to free a better one.</p>
+<button class="btn" onclick="show('home')">Play now</button></div></section>
+</main></div>
+<div class="modal" id="sm"><div class="mp"><h2 style="margin:0 0 6px">Settings</h2><div id="sb"></div><button class="btn" id="sx" style="width:100%;margin-top:14px">Done</button></div></div>
+<div class="modal" id="nm"><div class="mp"><h2 style="margin:0 0 6px">What’s your name?</h2><p style="color:var(--mu);margin:0 0 12px">It shows next to your pieces.</p><input id="ni" maxlength="16" autocomplete="off" placeholder="Your name"><button class="btn" id="nk" style="width:100%;margin-top:12px">Continue</button></div></div>
+<script src="script.js"></script></body></html>
